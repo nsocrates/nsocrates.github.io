@@ -1,3 +1,2 @@
 # nsocrates.github.io
-This is the source code for my portfolio.
-View it [here](nsocrates.github.io).
+This is a repository for my portfolio. You can view it [here](http://nsocrates.github.io).
