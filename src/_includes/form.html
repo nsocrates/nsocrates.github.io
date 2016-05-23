@@ -1,0 +1,55 @@
+<form
+  id="formControl"
+  action="https://formspree.io/nsocrates@protonmail.ch"
+  method="POST"
+  class="form"
+>
+
+  <input
+    type="hidden"
+    name="_next"
+    value="/thank-you"
+  />
+
+  <input
+    type="text"
+    name="_gotcha"
+    style="display: none"
+  />
+
+  <input
+    class="form__input form__input--pair"
+    id="formName"
+    type="text"
+    name="name"
+    placeholder="Name"
+  />
+
+  <input
+    class="form__input form__input--pair"
+    id="formEmail"
+    type="text"
+    name="email"
+    placeholder="Email"
+  />
+
+  <div class="form__textarea-wrap" id="formMessageWrapper">
+    <textarea
+      class="form__input form__input--message"
+      id="formMessage"
+      name="message"
+      rows="1"
+      placeholder="Message"
+    ></textarea>
+  </div>
+
+  <button
+    class="form__btn"
+    type="submit"
+  >
+    Send Message
+  </button>
+
+  <div class="form__error" id="formErrorDialogue"></div>
+
+</form>

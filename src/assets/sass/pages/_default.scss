@@ -1,0 +1,12 @@
+.default {
+  backface-visibility: hidden;
+  transition: all map-get($transition, sidebar);
+
+  @include media(">=medium") {
+    margin-left: map-get($size, sidebar-md);
+  }
+
+  @include media(">=large") {
+    margin-left: map-get($size, sidebar-lg);
+  }
+}

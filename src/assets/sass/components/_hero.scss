@@ -1,0 +1,135 @@
+.hero {
+  background-color: $gray-dark;
+  background-image: $noise-image;
+  backface-visibility: hidden;
+  height: map-get($size, hero);
+  min-height: map-get($size, hero);
+  overflow: hidden;
+  position: relative;
+  font-size: calc(13px + (18 - 13) * (100vw - 400px) / (800 - 400));
+  transition: font-size linear,
+              min-height map-get($transition, sidebar);
+
+  @include media(">=800px") {
+    font-size: inherit;
+  }
+
+  @include media(">=large") {
+    min-height: map-get($size, hero-lg);
+  }
+}
+
+.hero__container {
+  @include container;
+  height: 100%;
+}
+
+.hero__read-container {
+  @include read-container;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+
+  &--align-left {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.hero__type {
+  color: rgba($white, $l-secondary);
+  display: block;
+  font-weight: 200;
+  line-height: $squash-line-height;
+  margin-bottom: sm(-4);
+  margin-top: 0;
+  width: 100%;
+
+  &--primary {
+    font-size: em(map-get($font-size, jumbo));
+  }
+
+  &--secondary {
+    font-size: em(map-get($font-size, h4));
+  }
+
+  &--tertiary {
+    font-size: em(map-get($font-size, h5));
+  }
+
+  &--accent {
+    font-weight: 400;
+    color: $white;
+  }
+
+  &--page {
+    margin-bottom: sm(-1);
+  }
+}
+
+.hero__cta {
+  @include btn-cta;
+  background-color: rgba($white, 0.05);
+  box-shadow: 0 0 0 1px rgba($white, $l-secondary);
+  color: rgba($white, $l-secondary);
+  font-size: em(map-get($font-size, h4));
+
+  &:hover {
+    color: $white;
+    background-color: $accent-color;
+    box-shadow: 0 0 0 1px $accent-color;
+  }
+
+  &--page {
+    color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &--rs {
+    &:hover {
+      background-color: $reactsound;
+      box-shadow: 0 0 0 1px $reactsound;
+    }
+  }
+
+  &--amany {
+    &:hover {
+      background-color: $amanything;
+      box-shadow: 0 0 0 1px $amanything;
+    }
+  }
+
+  &--snvote {
+    &:hover {
+      background-color: $snvote;
+      box-shadow: 0 0 0 1px $snvote;
+    }
+  }
+
+  &--gw {
+    &:hover {
+      background-color: $getweather;
+      box-shadow: 0 0 0 1px $getweather;
+    }
+  }
+
+  &--pomodoro {
+    &:hover {
+      background-color: $pomodoro;
+      box-shadow: 0 0 0 1px $pomodoro;
+    }
+  }
+
+  &--wikiviewer {
+    &:hover {
+      color: $wikiviewer-text;
+      background-color: $wikiviewer;
+      box-shadow: 0 0 0 1px $wikiviewer;
+    }
+  }
+}

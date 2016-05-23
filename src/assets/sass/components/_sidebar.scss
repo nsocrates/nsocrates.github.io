@@ -1,0 +1,209 @@
+.sidebar {
+  background-color: $gray-dark;
+  background-image: $noise-image;
+  backface-visibility: hidden;
+  box-shadow: em(1px) 0 em(6px) rgba($black, $hint);
+  bottom: 0;
+  font-size: $small-font-size;
+  height: 100%;
+  left: 0;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  text-align: right;
+  top: 0;
+  transform: translate3d(-(map-get($size, sidebar)), 0, 0);
+  transition: all map-get($transition, sidebar);
+  width: map-get($size, sidebar);
+  z-index: map-get($z-index, sidebar);
+
+  display: flex;
+  flex-flow: column nowrap;
+
+  @include media(">=medium") {
+    transform: translate3d(0, 0, 0);
+    width: map-get($size, sidebar-md);
+  }
+
+  @include media(">=large") {
+    width: map-get($size, sidebar-lg);
+  }
+}
+
+.sidebar__top {
+  background-color: $gray-dark;
+  background-image: $noise-image;
+  margin-bottom: sm(1);
+  position: relative;
+  width: 100%;
+  z-index: 2;
+  flex: 1 0 auto;
+}
+
+.sidebar__figure {
+  @include nav-divider("bottom");
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+  margin-bottom: 0;
+  padding: sm(1);
+}
+
+.sidebar__avatar-wrap {
+  border-radius: 100%;
+  display: block;
+  margin-bottom: 1em;
+  width: 70%;
+
+  &:hover {
+    .sidebar__avatar {
+      box-shadow: 0 0 0 5px rgba($white, 0.54);
+    }
+  }
+}
+
+.sidebar__avatar {
+  border-radius: 100%;
+  box-shadow: 0 0 0 3px rgba($white, 0.28);
+  transition: all map-get($transition, avatar);
+}
+
+.sidebar__caption-group {
+  text-align: center;
+}
+
+.sidebar__caption {
+  &--name {
+    display: block;
+    font-size: em(24px);
+    line-height: $squash-line-height;
+    margin-bottom: sm(-2);
+    color: $white;
+  }
+
+  &--title {
+    display: block;
+    font-size: $small-font-size;
+    color: rgba($white, $l-hint);
+  }
+}
+
+.sidebar__link {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  color: rgba($white, $l-hint);
+  font-weight: 300;
+  width: 100%;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &--icon {
+    font-size: em(22px);
+    height: em(20px);
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+
+  &--menu {
+    padding: em(20px) sm(1);
+
+    &:hover .sidebar__menu-icon {
+      color: $accent-color;
+    }
+  }
+
+  &--submenu {
+    padding: em(10px) sm(1);
+
+    &:hover .sidebar__menu-icon {
+      color: $accent-color;
+    }
+  }
+
+  &--active {
+    background-color: darken($gray-dark, 3%);
+    color: $white;
+    pointer-events: none;
+
+    .sidebar__menu-icon {
+      color: $accent-color;
+    }
+  }
+
+  &--divider-bottom {
+    @include nav-divider("bottom");
+  }
+}
+
+.sidebar__menu-icon {
+  font-size: em(22px);
+  margin-right: auto;
+}
+
+.sidebar__menu-text {
+  margin-left: auto;
+}
+
+.sidebar__icon-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.sidebar__bottom {
+  @include nav-divider("top");
+  padding: map-get($spacing, base) sm(1);
+  width: 100%;
+  flex: none;
+}
+
+body.sidebar-isVisible {
+  .sidebar {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .toggle,
+  .default {
+    transform: translate3d(map-get($size, sidebar), 0, 0);
+  }
+
+  .toggle-overlay {
+    opacity: 1;
+    height: 100%;
+    width: 100%;
+  }
+
+  .toggle {
+    background-color: rgba($black, 0.2);
+  }
+
+  .toggle__bars {
+    background-color: transparent;
+
+    &::before {
+      top: 0;
+      transform: rotate(45deg);
+      transition: top map-get($transition, toggler) 0s,
+                  transform map-get($transition, toggler) map-get($transition, toggler-delay);
+    }
+
+    &::after {
+      bottom: 0;
+      transform: rotate(-45deg);
+      transition: bottom map-get($transition, toggler) 0s,
+                  transform map-get($transition, toggler) map-get($transition, toggler-delay);
+    }
+  }
+
+  @include media(">=medium") {
+    .toggle,
+    .default {
+      transform: none;
+    }
+  }
+}
