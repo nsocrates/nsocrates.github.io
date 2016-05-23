@@ -1,0 +1,58 @@
+{% capture hero_styles %}
+  {% if page.color.base %}
+    style="background-color:{{ page.color.base }}"
+  {% endif %}
+{% endcapture %}
+
+{% capture btn_modifier %}
+  {% if page.class_modifier %}
+    hero__cta--{{ page.class_modifier }}
+  {% endif %}
+{% endcapture %}
+
+{% capture font_styles %}
+  {% if page.font.style %}
+    style={{ page.font.style }}
+  {% endif %}
+{% endcapture %}
+
+<header class="hero" id="home" {{ hero_styles }}>
+
+{% if page.layout == "post" %}
+
+  <section class="hero__container">
+    <div class="hero__read-container">
+      <h1 class="hero__type hero__type--page hero__type--primary hero__type--accent" {{ font_styles }}>
+        {{ page.title }}
+      </h1>
+      <a
+        class="hero__cta hero__cta--page {{ btn_modifier }}"
+        href="{{ page.to.site }}"
+      >
+        <svg class="hero__icon icon icon--link">
+          <use xlink:href="#icon--link"></use>
+          <span class="icon__reader">link</span>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+{% else %}
+
+  <section class="hero__container">
+    <div class="hero__read-container hero__read-container--align-left">
+      <h5 class="hero__type hero__type--tertiary">
+        Hello, I am
+      </h5>
+      <h1 class="hero__type hero__type--primary hero__type--accent">
+        Socrates<br>Nguyen
+      </h1>
+      <h4 class="hero__type hero__type--secondary">
+        I turn <span class="hero__type--accent">ideas</span> into <span class="hero__type--accent">code</span>.
+      </h4>
+    </div>
+  </section>
+
+{% endif %}
+
+</header>
