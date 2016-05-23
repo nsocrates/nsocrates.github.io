@@ -8,10 +8,7 @@ function validation() {
   const formErrorDialogue = document.getElementById('formErrorDialogue')
 
   function validateRequired(element) {
-    if (!!element.value) {
-      return true
-    }
-    return false
+    return !!element.value
   }
 
   function validateEmail(element) {
