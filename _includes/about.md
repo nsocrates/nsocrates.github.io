@@ -1,3 +1,0 @@
-I am a Front-end Web Developer based in the Orange County area. Following the mobile-first approach, I specialize in building websites and web applications that are functional and responsive. I find great interest in learning about the latest web standards and coding conventions. I have high ambitions, constantly finding new ways to improve my skills. Currently, my preferred tools include [Sass](http://sass-lang.com/), [Webpack](https://webpack.github.io/), [React](https://facebook.github.io/react/), [Node.js](https://nodejs.org/), and [Express](http://expressjs.com/).
-
-When I am not coding, I am probably listening to trance while thinking about cats, coffee and food.
