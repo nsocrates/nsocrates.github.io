@@ -1,0 +1,23 @@
+.root {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+}
+
+.wrapper {
+  margin-bottom: -$footer-height;
+  min-height: 100%;
+
+  &::after {
+    content: "";
+    display: block;
+    height: $footer-height;
+  }
+}
+
+.main {
+  @include container;
+  padding-top: 15px;
+}

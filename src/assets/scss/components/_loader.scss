@@ -1,0 +1,43 @@
+.loader {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: $z-loader;
+  background: none;
+}
+
+.loader__section {
+  background-color: $white;
+  width: 51%;
+  z-index: $z-curtain;
+  position: fixed;
+  height: 100%;
+
+  &--left {
+    left: 0;
+  }
+
+  &--right {
+    right: 0;
+  }
+}
+
+.loader__icon {
+  position: fixed;
+  z-index: $z-loader;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dot1 {
+  animation: dots 1.5s steps(3, start) reverse infinite;
+}
+
+.dot2 {
+  animation: dots 1.5s steps(2, start) reverse infinite;
+}
+
+@keyframes dots {
+  to { visibility: hidden; }
+}

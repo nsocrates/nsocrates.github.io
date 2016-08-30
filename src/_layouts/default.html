@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include head.html %}
+
+  <body>
+    {% include svg.html %}
+    <div id="root" class="root">
+
+    {% include logo.html %}
+
+      <div class="wrapper">
+        {% include loader.html %}
+        {% include header.html %}
+
+        <main id="main" class="main">
+
+          {{ content }}
+
+        </main>
+      </div>
+      {% include footer.html %}
+    </div>
+  <!-- JS -->
+  <!-- inject:js -->
+  <!-- endinject -->
+
+  </body>
+
+</html>

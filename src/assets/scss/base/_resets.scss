@@ -1,0 +1,53 @@
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  list-style-type: none;
+}
+
+button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  outline: 0;
+  padding: 0;
+  touch-action: manipulation;
+  user-select: none;
+
+  &:active {
+    color: none;
+  }
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+input,
+textarea {
+  border-radius: 0;
+  padding: 0;
+  border-width: 1px;
+  margin: 0;
+  outline: 0;
+  border-style: solid;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+html [type="button"] {
+  -webkit-appearance: none;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}

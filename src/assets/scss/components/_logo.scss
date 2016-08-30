@@ -1,0 +1,23 @@
+.logo {
+  display: none;
+
+  @include media-breakpoint-up(sm) {
+    display: block;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    z-index: $z-logo;
+  }
+}
+
+.logo__img-wrap {
+  display: block;
+  position: relative;
+  width: em(48px);
+  height: em(48px);
+}
+
+.logo__img {
+  width: 100%;
+  height: auto;
+}

@@ -1,0 +1,9 @@
+.DS_Store
+.tmp
+.publish
+.log
+dist
+gulp
+node_modules
+gulpfile.js
+webpack.config.js

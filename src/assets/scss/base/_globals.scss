@@ -1,0 +1,37 @@
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+html {
+  font-size: $global-font-size;
+}
+
+body {
+  @include write-media;
+  color: $text-color;
+  font-family: $base-font-family;
+  font-feature-settings: "liga" 1,"kern" 1;
+  font-kerning: normal;
+  font-size: rem($base-font-size);
+  font-weight: $base-font-weight;
+  line-height: $base-line-height;
+  background-color: $body-background;
+  min-width: map-get($container, min);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  @include media-breakpoint-up(md) {
+    font-size: rem($base-font-size-lg);
+  }
+}
+
+input,
+textarea {
+  color: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
