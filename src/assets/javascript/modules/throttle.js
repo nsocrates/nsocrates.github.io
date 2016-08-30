@@ -1,3 +1,5 @@
+// http://stackoverflow.com/questions/33687757/creating-own-throttle-function-and-testing-with-settimeout
+
 // Returns a function, that, when invoked, will only be triggered at most once
 // during a given window of time. Normally, the throttled function will run
 // as much as it can, without ever going more than once per `wait` duration;
