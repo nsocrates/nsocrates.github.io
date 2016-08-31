@@ -11,8 +11,8 @@ const state = {
 }
 
 // Calculates a new ratio that will fit either the max width or max height
+// calcFitRatio : (Int, Int) -> (Int, Int) -> { a : String, b : String }
 const calcFitRatio = (mw, mh) => (w, h) => {
-  // Subtract 20px for isotope gutter
   const r = Math.min(mw / w, mh / h)
     return {
     width: `${w * r}px`,
@@ -28,8 +28,8 @@ const ratio = (...args) => (
 // Calculates row
 const makeRow = maxWidth => (...args) => maxWidth / ratio(...args)
 
-// @ lg [012--3456]
-const layoutLg = (mWidth, rowFn) => values => {
+// @ xl [012--3456]
+const layoutXl = (mWidth, rowFn) => values => {
   const mHeight1 = rowFn(values[0], values[1], values[2])
   const mHeight2 = rowFn(values[3], values[4], values[5], values[6])
 
@@ -42,8 +42,8 @@ const layoutLg = (mWidth, rowFn) => values => {
   })
 }
 
-// @ md [01-23-456]
-const layoutMd = (mWidth, rowFn) => values => {
+// @ sm, md, lg [01-23-456]
+const layoutDefault = (mWidth, rowFn) => values => {
   // Calculate max height of all images in each row
   const mHeight1 = rowFn(values[0], values[1])
   let mHeight2
@@ -69,8 +69,8 @@ const layoutMd = (mWidth, rowFn) => values => {
   })
 }
 
-// @ sm [0--2--3...6]
-const layoutSm = (mWidth, rowFn) => values => {
+// @ xs [0-1-2...6]
+const layoutXs = (mWidth, rowFn) => values => {
   return values.map(item => {
     const mHeight = rowFn(item)
     return calcFitRatio(mWidth, mHeight)(item[0], item[1])
@@ -104,11 +104,11 @@ function layout(values) {
     case 'sm':
     case 'md':
     case 'lg':
-      return layoutMd(mWidth, rowFn)(values)
+      return layoutDefault(mWidth, rowFn)(values)
     case 'xl':
-      return layoutLg(mWidth, rowFn)(values)
+      return layoutXl(mWidth, rowFn)(values)
     default:
-      return layoutSm(mWidth, rowFn)(values)
+      return layoutXs(mWidth, rowFn)(values)
   }
 }
 
@@ -136,7 +136,10 @@ function applyStyles() {
 
 // Gets the name of the current screen size defined in our CSS
 function selectBp() {
-  return window.getComputedStyle(document.body, '::after').getPropertyValue('content').split('"').join('')
+  return window.getComputedStyle(document.body, '::after')
+               .getPropertyValue('content')
+               .split('"')
+               .join('')
 }
 
 // Sets screen size and container width
@@ -151,15 +154,15 @@ function setAndApply() {
   return applyStyles()
 }
 
-// Initialize our Iso
-const rGallery = imagesLoaded => selector => {
+// Initialize our Iso gallery
+const isoGallery = imagesLoaded => selector => {
 
   // Wait for imagesLoaded to complete before init.
   imagesLoaded(state.container, { background: true }, () => {
   // Grab selectors and make it an iteratable array
   state.gridItems = [].slice.call(document.querySelectorAll(`${selector}`))
 
-    // Initialize isotope and get back the iso object
+    // Initialize masonry and store the returned object in variable isotope.
     isotope = masonry.init()
 
     // Grab data-wh attribute and parse it into an array
@@ -173,4 +176,4 @@ const rGallery = imagesLoaded => selector => {
 
 window.addEventListener('resize', debounce(setAndApply, 200))
 
-export default rGallery
+export default isoGallery

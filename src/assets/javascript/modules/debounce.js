@@ -8,9 +8,9 @@
 
 /**
  * Calls function after a certain amount of time.
- * @param  {Function} fn        Function to call.
- * @param  {Integer}   wait      Delay in ms.
- * @param  {Bool}   immediate - Should fn be called immediately?
+ * @param  {Function} fn          - Function to call.
+ * @param  {Integer}  wait        - Delay in ms.
+ * @param  {Bool}     immediate   - Should fn be called immediately?
  * @return {Function}             - Original fn wrapped in debounce fn.
  */
 export default function debounce(fn, wait, immediate) {

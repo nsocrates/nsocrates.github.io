@@ -8,6 +8,7 @@ import Modal from './modal.controller'
  * @param  {String} props.gitRepo
  * @param  {String} props.siteUrl
  * @param  {Array}  props.images
+ * @param  {Bool}   props.browserImages
  * @return {String} The HTML content
  */
 export default function layout(props = {}) {
@@ -105,7 +106,7 @@ export default function layout(props = {}) {
             </li>
 
             <li class="footer__social">
-              <a href="mailto:socratesnguy@gmail.com" class="footer__link">
+              <a href="mailto:nsocrates@protonmail.ch" class="footer__link">
                  <svg class="footer__icon icon icon--envelope">
                   <use xlink:href="#icon--envelope"></use>
                 </svg>
@@ -115,7 +116,7 @@ export default function layout(props = {}) {
           </ul>
 
           <section class="footer__section footer__section--left">
-            <a class="footer__link" href="mailto:socratesnguy@gmail.com">socratesnguy@gmail.com</a>
+            <a class="footer__link" href="mailto:nsocrates@protonmail.ch">nsocrates@protonmail.ch</a>
           </section>
 
       </footer>

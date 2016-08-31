@@ -1,39 +1,19 @@
 import 'gsap'
-import rGallery from './modules/iso'
 import * as Modals from './modules/modal/modal.component'
+import isoGallery from './modules/isoGallery'
 import Modal from './modules/modal/modal.controller'
 import imagesLoaded from 'imagesLoaded'
-import { curtain } from './modules/tweens'
+import { curtain } from './modules/timeline'
 
 window.onload = () => {
-  rGallery(imagesLoaded)('.gallery__item')
+  // reInit isoGallery to make sure everything lines up
+  isoGallery(imagesLoaded)('.gallery__item')
+
+  // Open curtain once everything is loaded
   curtain.open()
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  /**
-   * Nav event listener
-   */
-  // ;(function () {
-  //   const toggleButton = document.getElementById('toggle')
-  //   const menu = document.getElementById('menu')
-  //   const state = { menuIsActive: false }
-  //   const toggleOn = toggle.on()
-  //   const toggleOff = toggle.off()
-
-  //   const toggleMenu = () => {
-  //     if (state.menuIsActive) toggleOff.play(0)
-  //     else toggleOn.play(0)
-  //     state.menuIsActive = !state.menuIsActive
-  //   }
-
-  //   // Add listener to toggler and menu
-  //   toggleButton.addEventListener('click', toggleMenu)
-  //   menu.addEventListener('click', toggleMenu)
-
-  // })()
-
-
   /**
    * Modal Fn
    */
@@ -70,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
        */
       const closefx = document.getElementById('closefx')
       
-      // REMINDER: Remove event listeners on modal.close
+      // Attach listeners
       closefx.addEventListener('mouseenter', () => {
         TweenMax.killTweensOf(closefx)
         TweenMax.to(closefx, 0.3, { rotation: '90', autoAlpha: 0.38, ease: Power1.easeNone })
@@ -89,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
       didUnmount: handleDidUnmount,
     }
 
-    // Init our modal
+    // Group our modals
     const modals = {
       colorhappy: { name: 'colorhappy', content: Modals.ch },
       reactsound: { name: 'reactsound', content: Modals.rs },
@@ -121,5 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bindModal(modals)
 
   })()
-  rGallery(imagesLoaded)('.gallery__item')
+
+  // Init isoGallery
+  isoGallery(imagesLoaded)('.gallery__item')
 })
