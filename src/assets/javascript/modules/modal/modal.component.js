@@ -2,7 +2,7 @@ import ModalContent from './modal.model'
 
 const chProps = {
   heading: 'ColorHappy',
-  subHeading: 'Explore, create, and save your palettes.',
+  subheading: 'Explore, create, and save your palettes.',
 
   description: `ColorHappy is a color scheme manager that allows registered users to keep track
                 of their favorite color patterns and share them with others. Visitors can save
@@ -22,7 +22,7 @@ const chProps = {
 
 const rsProps = {
   heading: 'ReactSound',
-  subHeading: 'Get music through ReactSound.',
+  subheading: 'Get music through ReactSound.',
 
   description: `ReactSound is an audio client that renders and plays data fetched from
                 the SoundCloud API. Visitors have the option to authorize ReactSound and
@@ -32,7 +32,7 @@ const rsProps = {
   gitRepo: '//github.com/nsocrates/reactsound',
   siteUrl: '//reactsound.herokuapp.com',
   images: [
-    '/assets/images/rs/rs-1.jpeg',
+    '/assets/images/rs/rs-4.jpeg',
     '/assets/images/rs/rs-2.jpeg',
     '/assets/images/rs/rs-3.jpeg',
   ],
@@ -41,7 +41,7 @@ const rsProps = {
 
 const amaProps = {
   heading: 'AMAnything',
-  subHeading: 'A friendly interview web application.',
+  subheading: 'A friendly interview web application.',
 
   description: `AMAnything is a Twitter clone meant for asking questions. Visitors can
                 post questions on a user's wall. All posts are public, but the users have
@@ -59,7 +59,7 @@ const amaProps = {
 
 const snvProps = {
   heading: 'snVote',
-  subHeading: 'snVote allows you to create pools and share them with your friends.',
+  subheading: 'snVote allows you to create pools and share them with your friends.',
 
   description: `snVote is a voting application built with the MEAN stack. It features user
                 registration, authentication, event functions.`,

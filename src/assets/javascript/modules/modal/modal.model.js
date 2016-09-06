@@ -3,7 +3,7 @@ import Modal from './modal.controller'
 /**
  * Renders html template string
  * @param  {String} props.heading
- * @param  {String} props.subHeading
+ * @param  {String} props.subheading
  * @param  {String} props.description
  * @param  {String} props.gitRepo
  * @param  {String} props.siteUrl
@@ -14,7 +14,7 @@ import Modal from './modal.controller'
 export default function layout(props = {}) {
   const {
     heading = '',
-    subHeading = '',
+    subheading = '',
     description = '',
     gitRepo = '',
     siteUrl = '',
@@ -26,7 +26,7 @@ export default function layout(props = {}) {
 
         <header class="project__header">
           <h2 class="project__heading">${heading}</h2>
-          <h4 class="project__subheading">${subHeading}</h4>
+          <h4 class="project__subheading">${subheading}</h4>
           <p class="project__description">${description}</p>
         </header>
 
