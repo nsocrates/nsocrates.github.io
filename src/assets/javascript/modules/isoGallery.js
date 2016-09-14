@@ -136,7 +136,26 @@ function applyStyles() {
 
 // Gets the name of the current screen size defined in our CSS
 function selectBp() {
-  return window.getComputedStyle(document.body, '::after')
+  const afterElement = window.getComputedStyle && window.getComputedStyle(document.body, '::after')
+
+  if (!afterElement || !afterElement.getPropertyValue('content')) {
+    /* 
+    * xs:    0
+    * sm:    544px
+    * md:    768px
+    * lg:    992px
+    * xl:    1200px
+    */
+    const innerWidth = window.innerWidth
+
+    if (innerWidth >= 1200) return 'xl'
+    if (innerWidth >= 992) return 'lg'
+    if (innerWidth >= 768) return 'md'
+    if (innerWidth >= 544) return 'sm'
+    return 'xs'
+  }
+
+  return afterElement
                .getPropertyValue('content')
                .split('"')
                .join('')
