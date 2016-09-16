@@ -36,10 +36,10 @@
 
 .gallery__hover {
   position: absolute;
-  top: em(15px);
-  right: em(15px);
-  bottom: em(15px);
-  left: em(15px);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background-color: rgba($white, 0.85);
   cursor: pointer;
   opacity: 0;
@@ -47,13 +47,6 @@
   transition-property: opacity, visibility;
   transition-duration: 0.25s;
   transition-timing-function: map-get($ease, standard);
-
-  @include media-breakpoint-only(sm) {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
 }
 
 .gallery__name {

@@ -1,3 +1,5 @@
+import history from 'html5-history-api'
+
 const rootElement = document.getElementById('root')
 
 function Modal(opts) {
@@ -96,7 +98,10 @@ function Modal(opts) {
   function resetState() {
     // Reset history events
     window.onpopstate = null
-    window.history.replaceState({}, 'home', '/')
+
+    // HTML5-History-API polyfill
+    const location = window.history.location || window.location
+    history.replaceState({}, 'home', '/')
 
     // Reset UI events
     this.closeButton.removeEventListener('click', this.close.bind(this))
