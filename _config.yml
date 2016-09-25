@@ -1,8 +1,8 @@
 # Title, decription, tagline and URL for your site
 # Can be used in your theme by calling 'site.title' and so on
-title: Socrates | Front-End Developer
-description: Front-End Developer
-url: http://nsocrates.github.io
+title: Socrates
+description: Powered by coffee
+url: http://nsocrates.com
 
 # Used so Jekyll outputs the site correctly so Gulp can do what it wants
 source: .tmp/src
@@ -15,10 +15,10 @@ exclude: ['assets']
 author:
   name: Socrates
   email: nsocrates@protonmail.ch
-  uri: 
+  uri: //nsocrates.com
   bio: Front End Developer
   twitter:
-  github: //guthub.com/nsocrates
+  github: //github.com/nsocrates
   facebook: //facebook.com/socratesss
   codepen: //codepen.io/socrates
 
@@ -33,8 +33,6 @@ limit_posts: 10
 
 # Permalink structure and pagination options
 permalink: none
-paginate: 10
-paginate_path: 'page:num'
 excerpt_separator: '<!--more-->'
 
 # Markdown library and options
@@ -43,11 +41,3 @@ redcarpet:
   extensions: ['no_intra_emphasis', 'tables', 'fenced_code_blocks', 'autolink', 'smart',
               'strikethrough', 'superscript', 'underline', 'highlight', 'footnotes']
 highlighter: true
-
-# Extending Jekyll
-gems:
-  - jekyll-feed
-  - jekyll-gist
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-seo-tag
