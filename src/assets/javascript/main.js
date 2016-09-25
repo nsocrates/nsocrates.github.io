@@ -1,8 +1,8 @@
 import 'gsap'
+import imagesLoaded from 'imagesLoaded'
 import * as Modals from './modules/modal/modal.component'
 import isoGallery from './modules/isoGallery'
 import Modal from './modules/modal/modal.controller'
-import imagesLoaded from 'imagesLoaded'
 import { curtain } from './modules/timeline'
 
 window.onload = () => {
@@ -14,9 +14,9 @@ window.onload = () => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  /**
-   * Modal Fn
-   */
+  // =============================
+  // INIT MODAL
+  // =============================
   ;(function () {
     // Component WillUnmount
     function handleWillUnmount(cb) {
@@ -35,20 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Component DidMount
     function handleDidMount(cb) {
-      /**
-       * Begin modal onenter animation
-       */
       const imageContainer = document.getElementById('showcase')
+      const closefx = document.getElementById('closefx')
 
       // Wait for images to load first, then trigger animation.
       imagesLoaded(imageContainer, () => {
         curtain.open({ onComplete: cb })
       })
-
-      /**
-       * Activate hover animations
-       */
-      const closefx = document.getElementById('closefx')
       
       // Attach listeners
       closefx.addEventListener('mouseenter', () => {
@@ -62,13 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     }
 
-    const modalProps = {
-      willMount: handleWillMount,
-      didMount: handleDidMount,
-      willUnmount: handleWillUnmount,
-      didUnmount: handleDidUnmount,
-    }
-
     // Group our modals
     const modals = {
       colorhappy: { name: 'colorhappy', content: Modals.ch },
@@ -77,23 +63,32 @@ document.addEventListener('DOMContentLoaded', () => {
       snvote: { name: 'snvote', content: Modals.snv },
     }
 
+    const modalProps = {
+      willMount: handleWillMount,
+      didMount: handleDidMount,
+      willUnmount: handleWillUnmount,
+      didUnmount: handleDidUnmount,
+    }
+
     const modalKeys = Object.keys(modals)
     const hashLocation = String(window.location.hash.split('#')[1])
 
+    // Opens modal
+    function setModal(modal) {
+      const m = new Modal(Object.assign({}, modal, modalProps))
+      m.open()
+    }
+
     // Open modal on direct links
     if (modalKeys.indexOf(hashLocation) !== -1) {
-      const m = new Modal(Object.assign({}, modals[hashLocation], modalProps))
-      m.open()
+      setModal(modals[hashLocation])
     }
 
     // Bind modals to gallery
     function bindModal(modalObj) {
       modalKeys.forEach(key => {
-
-        // Bind events
         document.getElementById(`anchor__${key}`).addEventListener('click', () => {
-          const m = new Modal(Object.assign({}, modalObj[key], modalProps))
-          m.open()
+          setModal(modalObj[key])
         })
       })
     }
@@ -102,6 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   })()
 
-  // Init isoGallery
+  // ============================
+  // INIT ISO GALLERY
+  // ============================
   isoGallery(imagesLoaded)('.gallery__item')
 })
