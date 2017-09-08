@@ -130,7 +130,7 @@ function Modal(opts) {
 
     // Init event listeners
     initState.call(this)
-    
+
     // Apply ID
     this.modal.id = 'modal'
 

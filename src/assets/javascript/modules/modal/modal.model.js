@@ -82,9 +82,9 @@ export default function layout(props = {}) {
           <ul class="footer__section footer__section--right">
 
             <li class="footer__social">
-              <a href="//facebook.com/socratesss" class="footer__link">
-                <svg class="footer__icon icon icon--facebook">
-                  <use xlink:href="#icon--facebook"></use>
+              <a href="//linkedin.com/in/nsocrates" class="footer__link">
+                <svg class="footer__icon icon icon--linkedin-square">
+                  <use xlink:href="#icon--linkedin-square"></use>
                 </svg>
               </a>
             </li>
