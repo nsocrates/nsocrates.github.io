@@ -14,7 +14,7 @@ exclude: ['assets']
 # NOTE: Don't use @ in front of your Twitter username
 author:
   name: Socrates Nguyen
-  email: nsocrates@protonmail.ch
+  email: nsocrates.dev@gmail.com
   uri: //nsocrates.com
   bio: Front End Developer
   twitter:

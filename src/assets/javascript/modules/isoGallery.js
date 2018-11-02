@@ -30,15 +30,16 @@ const makeRow = maxWidth => (...args) => maxWidth / ratio(...args)
 
 // @ xl [012--3456]
 const layoutXl = (mWidth, rowFn) => values => {
-  const mHeight1 = rowFn(values[0], values[1], values[2])
-  const mHeight2 = rowFn(values[3], values[4], values[5], values[6])
+  const mHeight1 = rowFn(values[0], values[1], values[2], values[3])
+  // const mHeight2 = rowFn(values[3], values[4], values[5], values[6])
 
   const r1 = calcFitRatio(mWidth, mHeight1)
-  const r2 = calcFitRatio(mWidth, mHeight2)
+  // const r2 = calcFitRatio(mWidth, mHeight2)
 
   return values.map((item, idx) => {
-    if (idx <= 2) return r1(item[0], item[1])
-    return r2(item[0], item[1])
+    return r1(item[0], item[1], item[2])
+    // if (idx <= 2) return r1(item[0], item[1])
+    // return r2(item[0], item[1])
   })
 }
 
@@ -47,25 +48,25 @@ const layoutDefault = (mWidth, rowFn) => values => {
   // Calculate max height of all images in each row
   const mHeight1 = rowFn(values[0], values[1])
   let mHeight2
-  let mHeight3
+  // let mHeight3
   let span2
 
   // Set columns depending on screen size
   mHeight2 = rowFn(values[2], values[3])
-  mHeight3 = rowFn(values[4], values[5], values[6])
-  span2 = 3
+  // mHeight3 = rowFn(values[4], values[5], values[6])
+  span2 = 2
 
   // Set up ratio fn
   // We get back a fn that calculates an optimal w/h for each image
   const r1 = calcFitRatio(mWidth, mHeight1)
   const r2 = calcFitRatio(mWidth, mHeight2)
-  const r3 = calcFitRatio(mWidth, mHeight3)
+  // const r3 = calcFitRatio(mWidth, mHeight3)
 
   // Return images with new dimensions
   return values.map((item, idx) => {
     if (idx <= 1) return r1(item[0], item[1])
-    if (idx <= span2) return r2(item[0], item[1])
-    return r3(item[0], item[1])
+    return r2(item[0], item[1])
+    // return r3(item[0], item[1])
   })
 }
 
