@@ -668,15 +668,19 @@ strong {
   position: relative;
   width: 100%;
   overflow: hidden;
+  margin-top: 12vmax;
+}
+
+@media (min-width: 544px) {
+  .blurb {
+    margin-top: 0;
+  }
 }
 
 .blurb__container {
   margin-left: auto;
   margin-right: auto;
-  padding-left: 25px;
-  padding-right: 25px;
-  padding-top: 40px;
-  height: 100%;
+  padding: 40px 25px;
   max-width: 1440px;
 }
 
@@ -696,7 +700,6 @@ strong {
 .blurb__content {
   position: relative;
   min-height: 1px;
-  padding-top: 8.25%;
   padding-right: 25px;
   padding-left: 25px;
   height: 100%;
@@ -705,6 +708,7 @@ strong {
 
 @media (min-width: 544px) {
   .blurb__content {
+    padding-top: 8.25%;
     margin-left: 2.083%;
   }
 }
@@ -753,10 +757,12 @@ strong {
 .wrapper {
   margin-bottom: -75px;
   min-height: 100%;
+  display: flex;
 }
 
 @media (min-width: 544px) {
   .wrapper {
+    display: block;
     margin-bottom: -65px;
   }
 }
@@ -869,7 +875,7 @@ strong {
   vertical-align: middle;
 }
 
-.icon--linkedin-square {
+.icon--linkedin {
   width: 0.857421875em;
 }
 
