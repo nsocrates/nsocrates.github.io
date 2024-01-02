@@ -23,7 +23,7 @@ function mapFactory() {
 
   const setView = nextCoords => {
     const [lat, lng] = coords
-    const [latNext, lngNext] = nextCoords
+    const [latNext, lngNext] = nextCoords || []
     const isValid = !isNaN(latNext) && !isNaN(lngNext)
     const isNew = lat !== latNext && lng !== lngNext
 
