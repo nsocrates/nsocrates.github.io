@@ -27,9 +27,8 @@ function mapFactory() {
     const [lat, lng] = coords
     const [nextLat, nextLng] = nextCoords
     const isValid = !isNaN(nextLat) && !isNaN(nextLng)
-    const isNew = lat !== nextLat || lng !== nextLng
 
-    if (isValid && (isNew || !hasView)) {
+    if (isValid || !hasView) {
       map.setView(nextCoords, 20, { animate: true })
       marker.setLatLng(nextCoords)
       coords = nextCoords
