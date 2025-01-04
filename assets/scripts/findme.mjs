@@ -6,6 +6,7 @@ const MARKER_HTML =
 
 function mapFactory() {
   let coords = [0, 0]
+  let hasView = false
   const map = L.map('map')
   const icon = L.divIcon({
     className: 'marker',
@@ -28,10 +29,11 @@ function mapFactory() {
     const isValid = !isNaN(nextLat) && !isNaN(nextLng)
     const isNew = lat !== nextLat || lng !== nextLng
 
-    if (isValid && isNew) {
+    if (isValid && (isNew || !hasView)) {
       map.setView(nextCoords, 20, { animate: true })
       marker.setLatLng(nextCoords)
       coords = nextCoords
+      hasView = true
     }
   }
 
