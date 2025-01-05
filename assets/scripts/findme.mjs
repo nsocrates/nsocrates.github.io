@@ -41,21 +41,33 @@ function mapFactory() {
 
 ;(async function main() {
   const map = mapFactory()
-  const webSocket = new WebSocket(WS_URL)
+  let webSocket
 
-  webSocket.addEventListener('open', () => {
-    webSocket.send({})
-  })
+  function reconnectWebSocket() {
+    setTimeout(() => {
+      console.log('Reconnecting WebSocket...')
+      initWebSocket()
+    }, 3000)
+  }
 
-  webSocket.addEventListener('message', e => {
-    const data = JSON.parse(e.data)
-    const { message, action } = data
-    if (action === 'coords') {
-      map.setView(data.message)
-    }
-  })
+  function initWebSocket() {
+    webSocket = new WebSocket(WS_URL)
 
-  webSocket.addEventListener('error', e => {
-    map.setView()
-  })
+    webSocket.addEventListener('open', () => {
+      webSocket.send({})
+    })
+
+    webSocket.addEventListener('message', e => {
+      const data = JSON.parse(e.data)
+      const { message, action } = data
+      if (action === 'coords') {
+        map.setView(data.message)
+      }
+    })
+
+    webSocket.addEventListener('error', map.setView)
+    webSocket.addEventListener('close', reconnectWebSocket)
+  }
+
+  initWebSocket()
 })()
